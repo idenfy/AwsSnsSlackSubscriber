@@ -56,7 +56,7 @@ exports.handler = function(event, context) {
     }
 
     var postData = {
-        "channel": "#aws-sns",
+        "channel": process.env.SLACK_CHANNEL,
         "username": eventSource,
         "text": "*" + subject + "*",
         "icon_emoji": ":arrow_forward:",
