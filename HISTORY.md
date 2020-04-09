@@ -1,5 +1,8 @@
 # Release history
 
+#### 1.1.1
+Add js file to manifest.
+
 #### 1.1.0
 Add ability to specify slack channel.
 
