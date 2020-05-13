@@ -10,7 +10,7 @@ class SlackSubscriber(aws_lambda.Function):
             self,
             scope: Stack,
             id: str,
-            slack_webhook_url_path: str,
+            slack_webhook_url: str,
             slack_channel: str,
             sns_topic: ITopic
     ) -> None:
@@ -19,8 +19,7 @@ class SlackSubscriber(aws_lambda.Function):
 
         :param scope: A Cloud formation stack to which this resource will be added.
         :param id: Resource id.
-        :param slack_webhook_url_path: Slack webhook url path. Usually looks like this:
-        "/services/T6ZM3ABCS/B011EYRLVPF/Fsrqsc1mgVuX065y9ARNK3QE".
+        :param slack_webhook_url: Slack webhook url to post callbacks.
         :param slack_channel: A channel to which send the post. Usually looks like this: "#aws-sns-channel".
         :param sns_topic: A SNS Topic to which this lambda should be subscribed.
         """
@@ -28,12 +27,13 @@ class SlackSubscriber(aws_lambda.Function):
             scope,
             id,
             code=aws_lambda.Code.from_asset(f'{root_path}/src'),
-            handler='lambda.handler',
-            runtime=aws_lambda.Runtime.NODEJS_12_X,
+            handler='index.handler',
+            runtime=aws_lambda.Runtime.PYTHON_3_8,
             environment={
-                'SLACK_WEBHOOK_URL_PATH': slack_webhook_url_path,
+                'SLACK_WEBHOOK_URL': slack_webhook_url,
                 'SLACK_CHANNEL': slack_channel
             }
         )
 
+        # noinspection PyTypeChecker
         sns_topic.add_subscription(LambdaSubscription(self))
