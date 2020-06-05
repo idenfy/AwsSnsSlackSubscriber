@@ -1,5 +1,8 @@
 # Release history
 
+#### 2.1.0
+URL and AWS CDK updates.
+
 #### 1.1.1
 Completely refactor functionality. Add an explicit pipeline handler.
 Rewrite everything on python.
