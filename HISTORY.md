@@ -1,5 +1,8 @@
 # Release history
 
+#### 2.2.0
+Force update 1.60.0 and add upper bound of 2.0.0.
+
 #### 2.1.0
 URL and AWS CDK updates.
 

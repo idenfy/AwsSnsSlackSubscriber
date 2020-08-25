@@ -8,7 +8,7 @@ with open('HISTORY.md') as history_file:
 
 setup(
     name='aws_sns_slack_subscriber',
-    version='2.1.0',
+    version='2.2.0',
     license='GNU GENERAL PUBLIC LICENSE Version 3',
     packages=find_packages(exclude=['venv', 'test']),
     description=('AWS package which creates a Slack subscriber to a SNS Topic.'),
@@ -16,10 +16,10 @@ setup(
     long_description_content_type="text/markdown",
     include_package_data=True,
     install_requires=[
-        'aws_cdk.core>=1.44.0,<1.50.0',
-        'aws_cdk.aws_lambda>=1.44.0,<1.50.0',
-        'aws_cdk.aws_sns>=1.44.0,<1.50.0',
-        'aws_cdk.aws_sns_subscriptions>=1.44.0,<1.50.0',
+        'aws_cdk.core>=1.60.0,<2.0.0',
+        'aws_cdk.aws_lambda>=1.60.0,<2.0.0',
+        'aws_cdk.aws_sns>=1.60.0,<2.0.0',
+        'aws_cdk.aws_sns_subscriptions>=1.60.0,<2.0.0',
     ],
     author='Laimonas Sutkus',
     author_email='laimonas.sutkus@gmail.com (laimonas@idenfy.com)',
